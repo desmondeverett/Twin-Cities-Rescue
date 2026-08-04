@@ -1,0 +1,160 @@
+/* IMPORT GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap');
+
+/* --- COLOR PALETTE & VARIABLES --- */
+:root {
+    --bg-color: #F9F9F9;        /* Off-White */
+    --text-color: #222222;      /* Deep Gray */
+    --primary-color: #2E7D32;   /* Forest Green (Trust/Nature) */
+    --accent-color: #D84315;    /* Terracotta (Action/Hope) */
+    
+    --heading-font: 'Merriweather', Georgia, serif;
+    --body-font: 'Lato', Verdana, sans-serif;
+}
+
+/* --- BASE RESETS & TYPOGRAPHY --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--body-font);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+h1, h2, h3, legend {
+    font-family: var(--heading-font);
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.8rem; margin-top: 1.5rem; border-bottom: 2px solid var(--primary-color); padding-bottom: 0.3rem;}
+h3 { font-size: 1.3rem; margin-top: 1rem; }
+p, ul, figure { margin-bottom: 1rem; }
+ul { margin-left: 2rem; }
+
+/* --- MOBILE-FIRST LAYOUT (FLEXBOX) --- */
+header {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    padding: 1.5rem;
+    text-align: center;
+}
+
+header h1, header p {
+    color: var(--bg-color);
+    border: none;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 1rem 0 0 0;
+    display: flex;
+    flex-direction: column; /* Stacked links on mobile */
+    gap: 10px;
+}
+
+nav a {
+    color: var(--bg-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    display: block;
+}
+
+nav a:hover {
+    background-color: var(--accent-color);
+}
+
+main {
+    padding: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 2rem;
+    background-color: #FFFFFF;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+footer {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* --- MEDIA & IMAGES --- */
+img, picture, video, audio {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin: 1rem 0;
+}
+
+figcaption {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #555555;
+    text-align: center;
+}
+
+/* --- FORM STYLING --- */
+fieldset {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+}
+
+input[type="text"], input[type="email"], select, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 0.3rem;
+    border: 1px solid #BBBBBB;
+    border-radius: 4px;
+    font-family: var(--body-font);
+}
+
+button[type="submit"] {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-family: var(--body-font);
+}
+
+button[type="submit"]:hover {
+    background-color: #B93811;
+}
+
+/* --- DESKTOP MEDIA QUERY (Responsive Layout) --- */
+@media (min-width: 768px) {
+    nav ul {
+        flex-direction: row; /* Horizontal links on desktop */
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    button[type="submit"] {
+        width: auto; /* Button doesn't span full width on desktop */
+    }
+}
