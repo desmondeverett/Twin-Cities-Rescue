@@ -97,12 +97,19 @@ footer {
 }
 
 /* --- MEDIA & IMAGES --- */
-img, picture, video, audio {
+img, picture, video {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
     display: block;
     margin: 1rem 0;
+}
+
+audio {
+    width: 100%;
+    max-width: 100%;
+    margin: 1rem 0;
+    display: block;
 }
 
 figcaption {
