@@ -47,6 +47,12 @@ header {
     text-align: center;
 }
 
+header img {
+    height: 60px;
+    width: auto;
+    margin-bottom: 0.5rem;
+}
+
 header h1, header p {
     color: var(--bg-color);
     border: none;
