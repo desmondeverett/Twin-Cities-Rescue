@@ -20,7 +20,7 @@ function loadFavorites() {
 function savePetToFavorites() {
     // Create an object with the pet's details
     const pet = {
-        name: "Adoptable Spotlight Dog",
+        name: "Adoptable Spotlight"
         savedOn: new Date().toLocaleDateString()
     };
 
