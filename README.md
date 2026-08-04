@@ -1,1 +1,1 @@
-# twin-cities-rescue
+Twin Cities Animal Rescue website built with semantic HTML as part of Touchstone Task 2, featuring a 4-page responsive layout, accessible navigation, embedded media assets, and an interactive interest form.
