@@ -1,36 +1,55 @@
-# 🐾 Twin Cities Animal Rescue — Website & Interactivity Build
+# Standard Operating Procedure (SOP): Front-End Web Development & Features
 
-A semantic, responsive, and fully accessible 4-page HTML website built for *Twin Cities Animal Rescue*, a community non-profit dedicated to rescuing, rehabilitating, and rehoming pets across the Minneapolis–St. Paul metropolitan area. 
+**Document ID:** SOP-TCAR-001  
+**Project Name:** Twin Cities Animal Rescue — Web Platform  
+**Client:** Twin Cities Animal Rescue (Client C)  
+**Repository:** desmondeverett/twin-cities-rescue  
+**Task Scope:** Touchstone Task 4 — Interactivity and Client-Side Data  
+**Primary Tech Stack:** HTML5, CSS3, JavaScript (ES6)
 
-This repository represents **Touchstone Task 4: Interactivity and Client-Side Data** for *Introduction to Web Development*.
+---
 
-## 📌 Project Overview
+## 1. Purpose & Core Development Guidelines
 
-- **Client:** Twin Cities Animal Rescue (Client C)
-- **Client Type:** Community Non-Profit
-- **Target Audience:** Potential adopters, animal foster parents, volunteers, donors, and community partners.
-- **Brand Tone:** Hopeful, trustworthy, clear, and action-oriented.
-- **Core Technologies:** HTML5, CSS3, and JavaScript (ES6).
+This Standard Operating Procedure (SOP) defines the engineering standards, code conventions, and technical implementations for the **Twin Cities Animal Rescue** web platform. 
 
-## ✨ New JavaScript Features (Touchstone 4)
+### 1.1 Technical Stack & Standards
+* **HTML5:** All structural markup must maintain semantic standards (`<header>`, `<main>`, `<section>`, `<article>`, `<footer>`) to ensure high accessibility (WCAG compliance) and SEO readiness.
+* **CSS3:** Styling must be centralized in `style.css` using dynamic Flexbox layouts, uniform color palettes, scalable typography tokens, and responsive breakpoints.
+* **JavaScript (ES6+):** All dynamic behavior is managed via client-side JavaScript in `script.js` using modular event listeners and DOM manipulation without external framework dependencies.
 
-1. **Interactive Favorite Pet Tracker:** Users can click a "Save to Favorites" button under the Adoptable Pet Spotlight on the home page to save a pet to their list dynamically.
-2. **Browser Storage (`localStorage`):** The application saves the user's favorite pet data in the browser's `localStorage` so their preferences persist even after refreshing the page or closing the browser.
-3. **Form Validation:** Custom JavaScript validation runs on the contact interest form when submitted, checking for required fields and valid email formats while displaying dynamic error messages near the relevant inputs without wiping user input.
+---
 
-## 🗂️ File Structure
+## 2. Dynamic Feature Specifications & Code Architecture
 
-This project utilizes a flat architecture for streamlined navigation, with all files located in the root directory:
+### 2.1 Interactive Favorite Pet Tracker
+* **Technical Implementation:** Managed via event delegation and click event listeners targeting the spotlight DOM elements on `index.html`.
+* **Execution Workflow:** 
+  1. Captures user click actions on the **"Save to Favorites"** UI button.
+  2. Dynamically updates UI elements and state classes to reflect saved selections.
+  3. Appends/removes selected pet objects from the target data array.
 
-twin-cities-rescue/
-├── index.html          # Home page (Mission, impact stats, spotlight, and favorites feature)
-├── services.html       # Services (Adoption, fostering, and volunteer programs)
-├── about.html          # About Us (Story, core values, partners, and video message)
-├── contact.html        # Contact Us (Hours, service area, and validated interest form)
-├── style.css           # External stylesheet (Consistent palette, typography, and Flexbox layout)
-├── script.js           # JavaScript logic (Favorite tracker, localStorage, and form validation)
-├── assets/             # Provided media assets
-│   ├── images/
-│   ├── audio/
-│   └── Video/
-└── README.md
+### 2.2 Data Persistence (`localStorage` API)
+* **Technical Implementation:** Utilizes the browser's native `window.localStorage` key-value engine for offline state persistence.
+* **Execution Workflow:**
+  1. Serializes favorite arrays into JSON strings via `JSON.stringify()` prior to writing to browser storage.
+  2. Parses existing records using `JSON.parse(localStorage.getItem(...))` upon DOM content load (`DOMContentLoaded`) to re-hydrate state across page reloads and user sessions.
+
+### 2.3 Client-Side Form Validation Logic
+* **Technical Implementation:** Implemented on the contact form (`contact.html`) to intercept default form submission behavior (`e.preventDefault()`).
+* **Validation Criteria:**
+  1. Checks non-empty values across mandatory input fields.
+  2. Validates string structure against standard email Regular Expressions (`RegExp`).
+* **DOM Error Handling:** Dynamically injects targeted inline error messages adjacent to failing input elements while preserving input values to maintain optimal user experience.
+
+---
+
+## 3. Maintenance, Testing & Deployment Pipeline
+
+### 3.1 Local Development & Code Review
+* Keep scripts modular, non-blocking, and cleanly separated across `index.html`, `style.css`, and `script.js`.
+* Ensure cross-browser compatibility across modern render engines (Blink, Gecko, WebKit).
+
+### 3.2 Continuous Deployment
+* **Hosting Platform:** GitHub Pages
+* **Deployment Trigger:** Automatic build pipeline executes on every push to the `main` branch.
